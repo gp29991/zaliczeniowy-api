@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zal-API", "Zal-API\Zal-API.csproj", "{EC5FFB13-04C1-48DF-9021-5332576FE3BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC5FFB13-04C1-48DF-9021-5332576FE3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC5FFB13-04C1-48DF-9021-5332576FE3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC5FFB13-04C1-48DF-9021-5332576FE3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC5FFB13-04C1-48DF-9021-5332576FE3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {647D5C31-5A66-4AB0-A1FC-712440AD7964}
+	EndGlobalSection
+EndGlobal
