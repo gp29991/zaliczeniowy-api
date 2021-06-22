@@ -7,7 +7,7 @@ using Zal_API.Data;
 
 namespace Zal_API.Models
 {
-    public class HussarRepository : IHussarRepository
+    public class HussarRepository<T> : IHussarRepository<T> where T : class
     {
         private readonly DataContext _context;
 
@@ -16,33 +16,33 @@ namespace Zal_API.Models
             _context = context;
         }
 
-        public async Task<Hussar> AddHussar(Hussar hussar)
+        public async Task<T> AddEntity(T entity)
         {
-            _context.Hussars.Add(hussar);
+            _context.Set<T>().Add(entity);
             await _context.SaveChangesAsync();
-            return hussar;
+            return entity;
         }
 
-        public async Task<IEnumerable<Hussar>> GetAllHussars()
+        public async Task<IEnumerable<T>> GetAllEntities()
         {
-            return await _context.Hussars.ToListAsync();
+            return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<Hussar> GetHussar(int id)
+        public async Task<T> GetEntity(int id)
         {
-            return await _context.Hussars.FindAsync(id);
+            return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task<Hussar> EditHussar(Hussar hussar)
+        public async Task<T> EditEntity(T entity)
         {
-            _context.Hussars.Update(hussar);
+            _context.Set<T>().Update(entity);
             await _context.SaveChangesAsync();
-            return hussar;
+            return entity;
         }
 
-        public async Task DeleteHussar(Hussar hussar)
+        public async Task DeleteEntity(T entity)
         {
-            _context.Hussars.Remove(hussar);
+            _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
         }
     }

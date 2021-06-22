@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Zal_API.Models
 {
-    public interface IHussarRepository
+    public interface IHussarRepository<T> where T : class
     {
-        Task<Hussar> AddHussar(Hussar hussar);
-        Task<IEnumerable<Hussar>> GetAllHussars();
-        Task<Hussar> GetHussar(int id);
-        Task<Hussar> EditHussar(Hussar hussar);
-        Task DeleteHussar(Hussar hussar);
+        Task<T> AddEntity(T entity);
+        Task<IEnumerable<T>> GetAllEntities();
+        Task<T> GetEntity(int id);
+        Task<T> EditEntity(T entity);
+        Task DeleteEntity(T entity);
 
     }
 }

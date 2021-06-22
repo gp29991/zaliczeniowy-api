@@ -15,5 +15,6 @@ namespace Zal_API.Data
         }
 
         public DbSet<Hussar> Hussars { get; set; }
+        public DbSet<Banner> Banners { get; set; }
     }
 }

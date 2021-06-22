@@ -8,9 +8,9 @@ namespace Zal_API.Controllers
     [ApiController]
     public class HussarController : ControllerBase
     {
-        private readonly IHussarRepository _hussarRepository;
+        private readonly IHussarRepository<Hussar> _hussarRepository;
 
-        public HussarController(IHussarRepository hussarRepository)
+        public HussarController(IHussarRepository<Hussar> hussarRepository)
         {
             _hussarRepository = hussarRepository;
         }
@@ -18,20 +18,20 @@ namespace Zal_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddHussar(Hussar hussar)
         {
-            var createdHussar = await _hussarRepository.AddHussar(hussar);
+            var createdHussar = await _hussarRepository.AddEntity(hussar);
             return CreatedAtAction("GetHussar", new { id = createdHussar.ID }, createdHussar);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetHussars()
         {
-            return Ok(await _hussarRepository.GetAllHussars());
+            return Ok(await _hussarRepository.GetAllEntities());
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetHussar(int id)
         {
-            var hussar = await _hussarRepository.GetHussar(id);
+            var hussar = await _hussarRepository.GetEntity(id);
             if(hussar == null)
             {
                 return NotFound();
@@ -46,23 +46,23 @@ namespace Zal_API.Controllers
             {
                 return BadRequest();
             }
-            var hussarToUpdate = await _hussarRepository.GetHussar(id);
+            var hussarToUpdate = await _hussarRepository.GetEntity(id);
             if (hussarToUpdate == null)
             {
                 return NotFound();
             }
-            return Ok(await _hussarRepository.EditHussar(hussar));
+            return Ok(await _hussarRepository.EditEntity(hussar));
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHussar(int id)
         {
-            var hussarToDelete = await _hussarRepository.GetHussar(id);
+            var hussarToDelete = await _hussarRepository.GetEntity(id);
             if (hussarToDelete == null)
             {
                 return NotFound();
             }
-            await _hussarRepository.DeleteHussar(hussarToDelete);
+            await _hussarRepository.DeleteEntity(hussarToDelete);
             return NoContent();
         }
     }

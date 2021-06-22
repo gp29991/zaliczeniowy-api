@@ -34,7 +34,7 @@ namespace Zal_API
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
-            services.AddScoped<IHussarRepository, HussarRepository>();
+            services.AddScoped(typeof(IHussarRepository<>), typeof(HussarRepository<>));
 
             services.AddCors();
 
